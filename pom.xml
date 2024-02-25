@@ -12,7 +12,7 @@
 	<artifactId>ControleAbastecimento</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ControleAbastecimento</name>
-	<description>Gerenciamento de abastecimentos e tanques de combustíveis do posto ABCD.</description>
+	<description>Controle de abastecimentos e tanques de combustíveis do posto ABCD.</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
@@ -57,6 +57,11 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>2.0.0</version>
 		</dependency>
 	</dependencies>
 
