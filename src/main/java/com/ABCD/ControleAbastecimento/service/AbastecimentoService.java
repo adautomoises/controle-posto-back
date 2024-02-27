@@ -4,12 +4,14 @@ import com.ABCD.ControleAbastecimento.dto.abastecimento.AbastecimentoRequest;
 import com.ABCD.ControleAbastecimento.model.Abastecimento;
 import com.ABCD.ControleAbastecimento.repository.AbastecimentoRepository;
 import com.ABCD.ControleAbastecimento.repository.BombaRepository;
+import com.ABCD.ControleAbastecimento.repository.RelatorioRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 
 @Service
@@ -17,6 +19,8 @@ import java.util.List;
 public class AbastecimentoService {
     private final AbastecimentoRepository abastecimentoRepository;
     private final BombaRepository bombaRepository;
+    private final RelatorioService relatorioService;
+    private final RelatorioRepository relatorioRepository;
 
     public List<Abastecimento> listarAbastecimentos(){ return abastecimentoRepository.findAll();}
 
@@ -27,8 +31,15 @@ public class AbastecimentoService {
 
         BeanUtils.copyProperties(abastecimentoRequest, abastecimento);
 
+        BigDecimal valorCombustivel = bombaRepository.findById(abastecimentoRequest.getBomba_id()).get().getTanque().getCombustivel().getValor();
+        BigDecimal valorAbastecido = abastecimentoRequest.getValor();
+        BigDecimal litros = valorAbastecido.divide(valorCombustivel, RoundingMode.HALF_UP);
+
+        abastecimento.setBomba(bombaRepository.findById(abastecimentoRequest.getBomba_id()).get());
+        abastecimento.setLitros(litros);
         abastecimento.setImposto(abastecimentoRequest.getValor().multiply(new BigDecimal("0.13")));
-        abastecimento.setTanque(bombaRepository.findById(abastecimentoRequest.getBomba_id()).get().getTanque());
+
+        relatorioRepository.save(relatorioService.convertSuppliesToReport(abastecimento));
 
         return abastecimentoRepository.save(abastecimento);
     }

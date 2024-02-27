@@ -16,10 +16,11 @@ public class Abastecimento {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name="tanque_id")
-    private Tanque tanque;
+    @JoinColumn(name = "bomba_id")
+    private Bomba bomba;
 
     private BigDecimal valor;
     private BigDecimal imposto;
+    private BigDecimal litros;
     private LocalDate data;
 }
