@@ -12,10 +12,7 @@ public class Bomba {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
-    @PrimaryKeyJoinColumn
-    private Combustivel combustivel;
-
     @ManyToOne
+    @JoinColumn(name = "tanque_id")
     private Tanque tanque;
 }

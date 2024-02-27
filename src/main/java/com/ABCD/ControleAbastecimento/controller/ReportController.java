@@ -1,6 +1,6 @@
 package com.ABCD.ControleAbastecimento.controller;
 
-import com.ABCD.ControleAbastecimento.service.ReportService;
+import com.ABCD.ControleAbastecimento.service.RelatorioService;
 import lombok.RequiredArgsConstructor;
 import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ import java.io.FileNotFoundException;
 @RequiredArgsConstructor
 public class ReportController {
     @Autowired
-    private ReportService service;
+    private RelatorioService service;
 
     @GetMapping
     public String generateReport() throws JRException, FileNotFoundException {

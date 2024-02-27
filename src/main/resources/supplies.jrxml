@@ -4,32 +4,32 @@
     <property name="com.jaspersoft.studio.data.sql.tables" value=""/>
     <property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter"/>
     <queryString language="SQL">
-        <![CDATA[SELECT id, tanque_id, valor, imposto, data FROM abastecimento;]]>
+        <![CDATA[SELECT * FROM relatorio;]]>
     </queryString>
-    <field name="id" class="java.lang.Long">
-        <property name="com.jaspersoft.studio.field.name" value="id"/>
-        <property name="com.jaspersoft.studio.field.label" value="id"/>
-        <property name="com.jaspersoft.studio.field.tree.path" value="abastecimento"/>
-    </field>
-    <field name="tanque_id" class="java.lang.Long">
-        <property name="com.jaspersoft.studio.field.name" value="tanque_id"/>
-        <property name="com.jaspersoft.studio.field.label" value="tanque_id"/>
-        <property name="com.jaspersoft.studio.field.tree.path" value="abastecimento"/>
-    </field>
-    <field name="valor" class="java.math.BigDecimal">
-        <property name="com.jaspersoft.studio.field.name" value="valor"/>
-        <property name="com.jaspersoft.studio.field.label" value="valor"/>
-        <property name="com.jaspersoft.studio.field.tree.path" value="abastecimento"/>
-    </field>
-    <field name="imposto" class="java.math.BigDecimal">
-        <property name="com.jaspersoft.studio.field.name" value="imposto"/>
-        <property name="com.jaspersoft.studio.field.label" value="imposto"/>
-        <property name="com.jaspersoft.studio.field.tree.path" value="abastecimento"/>
-    </field>
-    <field name="data" class="java.sql.Date">
+    <field name="data" class="java.lang.String">
         <property name="com.jaspersoft.studio.field.name" value="data"/>
         <property name="com.jaspersoft.studio.field.label" value="data"/>
-        <property name="com.jaspersoft.studio.field.tree.path" value="abastecimento"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="relatorio"/>
+    </field>
+    <field name="tanque" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="tanque"/>
+        <property name="com.jaspersoft.studio.field.label" value="tanque"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="relatorio"/>
+    </field>
+    <field name="bomba" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="bomba"/>
+        <property name="com.jaspersoft.studio.field.label" value="bomba"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="relatorio"/>
+    </field>
+    <field name="combustivel" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="combustivel"/>
+        <property name="com.jaspersoft.studio.field.label" value="combustivel"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="relatorio"/>
+    </field>
+    <field name="valor" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="valor"/>
+        <property name="com.jaspersoft.studio.field.label" value="valor"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="relatorio"/>
     </field>
     <background>
         <band/>
@@ -70,7 +70,7 @@
                 <textElement textAlignment="Center">
                     <font size="14" isBold="true"/>
                 </textElement>
-                <text><![CDATA[Id]]></text>
+                <text><![CDATA[Data]]></text>
             </staticText>
             <staticText>
                 <reportElement mode="Opaque" x="111" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="c63cc698-5e7e-43ad-9c99-671225f4b46d">
@@ -88,7 +88,7 @@
                 <textElement textAlignment="Center">
                     <font size="14" isBold="true"/>
                 </textElement>
-                <text><![CDATA[Valor]]></text>
+                <text><![CDATA[Bomba]]></text>
             </staticText>
             <staticText>
                 <reportElement mode="Opaque" x="333" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="dc63aa58-d21d-46a8-aa82-ddc15c6576bb">
@@ -97,7 +97,7 @@
                 <textElement textAlignment="Center">
                     <font size="14" isBold="true"/>
                 </textElement>
-                <text><![CDATA[Imposto]]></text>
+                <text><![CDATA[Combustivel]]></text>
             </staticText>
             <staticText>
                 <reportElement mode="Opaque" x="444" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="90fbeb22-b8ed-49eb-a883-9e045f21db3e">
@@ -106,7 +106,7 @@
                 <textElement textAlignment="Center">
                     <font size="14" isBold="true"/>
                 </textElement>
-                <text><![CDATA[Data]]></text>
+                <text><![CDATA[Valor]]></text>
             </staticText>
         </band>
     </columnHeader>
@@ -119,46 +119,46 @@
                 <reportElement x="0" y="0" width="111" height="20" uuid="dfa0193d-9cce-4514-acfe-8a0029aa6d36">
                     <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3dde5309-834a-422a-89f0-caa183da2528"/>
                 </reportElement>
-                <textElement>
+                <textElement textAlignment="Center">
                     <font size="14"/>
                 </textElement>
-                <textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$F{data}]]></textFieldExpression>
             </textField>
             <textField textAdjust="StretchHeight">
                 <reportElement x="111" y="0" width="111" height="20" uuid="90c9b885-3d12-46a3-8845-82bbcf9c76e3">
                     <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6c2313a8-d6c1-442d-9936-73bf8c94e16d"/>
                 </reportElement>
-                <textElement>
+                <textElement textAlignment="Center">
                     <font size="14"/>
                 </textElement>
-                <textFieldExpression><![CDATA[$F{tanque_id}]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$F{tanque}]]></textFieldExpression>
             </textField>
             <textField textAdjust="StretchHeight">
                 <reportElement x="222" y="0" width="111" height="20" uuid="ea5dd0bb-df11-45e3-878b-13a663a4f36b">
                     <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5f2adb80-0573-45b2-ad5f-466a22f2d61d"/>
                 </reportElement>
-                <textElement>
+                <textElement textAlignment="Center">
                     <font size="14"/>
                 </textElement>
-                <textFieldExpression><![CDATA[$F{valor}]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$F{bomba}]]></textFieldExpression>
             </textField>
             <textField textAdjust="StretchHeight">
                 <reportElement x="333" y="0" width="111" height="20" uuid="4305f469-da51-4ead-bed5-e616ab9544ef">
                     <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ae246516-a7af-4ed7-a3ce-a75804431c46"/>
                 </reportElement>
-                <textElement>
+                <textElement textAlignment="Center">
                     <font size="14"/>
                 </textElement>
-                <textFieldExpression><![CDATA[$F{imposto}]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$F{combustivel}]]></textFieldExpression>
             </textField>
             <textField textAdjust="StretchHeight">
                 <reportElement x="444" y="0" width="111" height="20" uuid="04ab42ce-623d-444a-9fcd-6912ee54c81c">
                     <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="01653771-1f9d-4338-ac14-b591dee8cde5"/>
                 </reportElement>
-                <textElement>
+                <textElement textAlignment="Center">
                     <font size="14"/>
                 </textElement>
-                <textFieldExpression><![CDATA[$F{data}]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$F{valor}]]></textFieldExpression>
             </textField>
         </band>
     </detail>

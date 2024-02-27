@@ -1,12 +1,10 @@
 package com.ABCD.ControleAbastecimento.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 @Entity
 @Getter
@@ -16,10 +14,9 @@ public class Tanque {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany
-    @PrimaryKeyJoinColumn
-    @JsonIgnore
-    private List<Bomba> bombas;
+    @OneToOne
+    @JoinColumn(name = "combustivel_id")
+    private Combustivel combustivel;
 
     private BigDecimal capacidade;
 }
