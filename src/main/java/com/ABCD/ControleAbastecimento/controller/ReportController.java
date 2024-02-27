@@ -3,7 +3,6 @@ package com.ABCD.ControleAbastecimento.controller;
 import com.ABCD.ControleAbastecimento.service.RelatorioService;
 import lombok.RequiredArgsConstructor;
 import net.sf.jasperreports.engine.JRException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,11 +13,9 @@ import java.io.FileNotFoundException;
 @RequestMapping("/relatorio")
 @RequiredArgsConstructor
 public class ReportController {
-    @Autowired
-    private RelatorioService service;
-
+    private final RelatorioService service;
     @GetMapping
-    public String generateReport() throws JRException, FileNotFoundException {
-        return service.exportReport();
+    public void generateReport() throws JRException, FileNotFoundException {
+        service.exportReport();
     }
 }

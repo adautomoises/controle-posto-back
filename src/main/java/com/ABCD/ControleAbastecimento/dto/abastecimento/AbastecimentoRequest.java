@@ -1,6 +1,5 @@
 package com.ABCD.ControleAbastecimento.dto.abastecimento;
 
-import com.ABCD.ControleAbastecimento.model.Bomba;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
