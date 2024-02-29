@@ -8,15 +8,13 @@ import com.ABCD.ControleAbastecimento.repository.BombaRepository;
 import com.ABCD.ControleAbastecimento.repository.RelatorioRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
+import org.springframework.security.access.AuthorizationServiceException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor
@@ -50,6 +48,9 @@ public class AbastecimentoService {
             TanquePut tanquePut = new TanquePut();
             tanquePut.setId(tanque.getId());
             tanquePut.setCombustivel_id(tanque.getCombustivel().getId());
+            if(tanque.getCapacidade().compareTo(litros) < 0){
+                throw new RuntimeException("Não foi possível atualizar o valor do tanque");
+            }
             tanquePut.setCapacidade(tanque.getCapacidade().subtract(litros));
 
             tanqueService.atualizarTanque(tanquePut);
