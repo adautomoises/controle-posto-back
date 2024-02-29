@@ -1,5 +1,6 @@
 package com.ABCD.ControleAbastecimento.service;
 
+import com.ABCD.ControleAbastecimento.exceptions.BadRequestException;
 import com.ABCD.ControleAbastecimento.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,6 +15,11 @@ public class AuthService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        UserDetails user = userRepository.findByLogin(username);
+        if(user == null){
+            throw new BadRequestException("Usuário inválido!");
+        }
+
         return userRepository.findByLogin(username);
     }
 }
