@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS relatorio (
+    id BIGSERIAL PRIMARY KEY,
+    data VARCHAR NOT NULL,
+    tanque VARCHAR NOT NULL,
+    bomba VARCHAR NOT NULL,
+    combustivel VARCHAR NOT NULL,
+    valor VARCHAR NOT NULL
+);
