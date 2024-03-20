@@ -4,6 +4,7 @@ import com.ABCD.ControleAbastecimento.dto.bomba.BombaPut;
 import com.ABCD.ControleAbastecimento.dto.bomba.BombaRequest;
 import com.ABCD.ControleAbastecimento.model.Bomba;
 import com.ABCD.ControleAbastecimento.service.BombaService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,6 +17,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/bombas")
 @RequiredArgsConstructor
+@SecurityRequirement(name = "bearerAuth")
 public class BombaController {
     private final BombaService bombaService;
 

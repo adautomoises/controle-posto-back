@@ -6,6 +6,7 @@ import com.ABCD.ControleAbastecimento.dto.records.RegisterRequest;
 import com.ABCD.ControleAbastecimento.infra.security.TokenService;
 import com.ABCD.ControleAbastecimento.model.User;
 import com.ABCD.ControleAbastecimento.repository.UserRepository;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
+@SecurityRequirement(name = "bearerAuth")
 public class AuthController {
 
     private final AuthenticationManager authenticationManager;

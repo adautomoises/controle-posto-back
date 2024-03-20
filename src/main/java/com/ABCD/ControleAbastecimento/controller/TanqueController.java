@@ -4,6 +4,7 @@ import com.ABCD.ControleAbastecimento.dto.tanque.TanquePut;
 import com.ABCD.ControleAbastecimento.dto.tanque.TanqueRequest;
 import com.ABCD.ControleAbastecimento.model.Tanque;
 import com.ABCD.ControleAbastecimento.service.TanqueService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,6 +17,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/tanques")
 @RequiredArgsConstructor
+@SecurityRequirement(name = "bearerAuth")
 public class TanqueController {
 
     private final TanqueService tanqueService;

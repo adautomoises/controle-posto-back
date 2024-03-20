@@ -3,6 +3,7 @@ package com.ABCD.ControleAbastecimento.controller;
 import com.ABCD.ControleAbastecimento.dto.abastecimento.AbastecimentoRequest;
 import com.ABCD.ControleAbastecimento.model.Abastecimento;
 import com.ABCD.ControleAbastecimento.service.AbastecimentoService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -15,6 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/abastecimento")
 @RequiredArgsConstructor
+@SecurityRequirement(name = "bearerAuth")
 public class AbastecimentoController {
     private final AbastecimentoService abastecimentoService;
 

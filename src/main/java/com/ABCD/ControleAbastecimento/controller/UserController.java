@@ -2,6 +2,7 @@ package com.ABCD.ControleAbastecimento.controller;
 
 import com.ABCD.ControleAbastecimento.dto.users.UserDTO;
 import com.ABCD.ControleAbastecimento.service.UserService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/users")
 @RequiredArgsConstructor
+@SecurityRequirement(name = "bearerAuth")
 public class UserController {
     private final UserService userService;
     @GetMapping("/frentistas")
